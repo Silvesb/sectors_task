@@ -134,6 +134,7 @@
 
         data.name = document.getElementById('name').value.trim();
         data.sectorId = parseInt(document.getElementById('sectors').value);
+        data.agreedTerms = termsCheckbox.checked;
 
         return data;
     }
@@ -152,7 +153,8 @@
             sessionStorage.setItem("userData", JSON.stringify({
                 sessionHash: json.sessionHash,
                 name: userData.name,
-                sectorId: userData.sectorId
+                sectorId: userData.sectorId,
+                agreedTerms: userData.agreedTerms
             }));
 
             alert(json.message || "Saved successfully!");

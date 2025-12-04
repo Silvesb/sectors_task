@@ -18,6 +18,7 @@ public class User {
     private Long id;
     private String name;
     private String sessionHash;
+    private boolean agreedTerms;
 
     @ManyToOne
     private Sector chosenSector;

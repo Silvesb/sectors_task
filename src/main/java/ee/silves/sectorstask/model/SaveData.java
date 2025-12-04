@@ -8,4 +8,5 @@ public class SaveData {
     private String name;
     private long sectorId;
     private String sessionHash;
+    private boolean agreedTerms;
 }

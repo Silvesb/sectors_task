@@ -38,9 +38,14 @@ public class UserService {
         if (!sectorRepository.existsById(saveData.getSectorId())) {
             throw new RuntimeException("Sector with id " + saveData.getSectorId() + " does not exist");
         }
+        
+        if (!saveData.isAgreedTerms()) {
+            throw new RuntimeException("You have to agree to the terms!");
+        }
         sector = sectorRepository.findById(saveData.getSectorId()).orElse(null);
         user.setName(saveData.getName());
         user.setChosenSector(sector);
+        user.setAgreedTerms(saveData.isAgreedTerms());
 
         userRepository.save(user);
 
